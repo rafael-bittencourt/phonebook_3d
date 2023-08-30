@@ -39,11 +39,7 @@ app.get('/api/persons/:id', (request, response, next) => {
 /* add one person */
 app.post('/api/persons', (request, response, next) => {
   const body = request.body
-
-  if (body.number === undefined) {
-    return response.status(400).json({ error: 'number missing' })
-  }
-
+  
   const person = new Person({
     name: body.name,
     number: body.number,
